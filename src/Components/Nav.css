@@ -31,7 +31,8 @@
 
 .navbarContainer h1 {
     color: white;
-     margin-inline: 10px;
+    margin-inline: 10px;
+    text-shadow: 2px 2px 1px rgb(78, 76, 76);
 }
 
 /* search */
@@ -48,6 +49,10 @@ input[type="text"]{
     border-radius: 10px 0 0 10px;
     outline: 0;
     margin-inline: 2px;
+}
+
+input[type="text"]:focus{
+    box-shadow: inset 0px 0px 3px rgb(139, 139, 139) ;
 }
 
 input[type="submit"]{
