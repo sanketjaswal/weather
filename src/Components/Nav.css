@@ -1,0 +1,64 @@
+/* nav */
+
+.navbarContainer{
+    width: 97vw;
+    height: 53px;
+    margin-block: 30px;
+    background-color: rgb(102, 236, 174);
+    border-radius: 10px;
+    display: flex;
+    justify-content:space-between;
+    align-items: center;
+}
+
+/* logo */
+
+.logo{
+    display: flex   ;
+    margin-inline: 10px;
+    user-select: none;
+}
+
+#sunsetLogo{
+    height: 50px;
+    width: 60px;
+    margin-top: 10px;
+    /* position: absolute; */
+    display: block;
+    background-image: url("./icons/icons8-sunset-64.png");
+
+}
+
+.navbarContainer h1 {
+    color: white;
+     margin-inline: 10px;
+}
+
+/* search */
+
+.searchContainer{
+    width: auto;
+    margin-inline: 5px;
+}
+
+input[type="text"]{
+    font-size: 1em;
+    border:none;
+    padding:10px;
+    border-radius: 10px 0 0 10px;
+    outline: 0;
+    margin-inline: 2px;
+}
+
+input[type="submit"]{
+    font-size: 1em;
+    border:0;
+    padding:10px;
+    border-radius: 0 10px 10px 0;
+    cursor:pointer;
+    margin-inline: 2px;
+}
+
+input[type="submit"]:active{
+    background-color: rgb(92, 216, 92);
+}
