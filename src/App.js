@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from "react";
 import "./App.css";
 import { Nav } from "./Components/Nav";
+import { WeatherSlot } from "./Components/WeatherSlot";
 
 function App() {
   const slotHolder = [];
+  const slotCities = [];
   const [slot, setSlot] = useState(slotHolder);
 
   useEffect(() => {
@@ -24,30 +26,38 @@ function App() {
     const latitute = response.coord.lat;
     const tempCelsius = tempKelvin - 273.15;
 
-    console.log(weather);
-    console.log(weatherExplain);
-    console.log(tempKelvin);
-    console.log(tempCelsius);
-    console.log(country);
-    console.log(longitute);
-    console.log(latitute);
+    // console.log(weather);
+    // console.log(weatherExplain);
+    // console.log(tempKelvin);
+    // console.log(tempCelsius);
+    // console.log(country);
+    // console.log(longitute);
+    // console.log(latitute);
+    // slotHolder.push(city);
+    createSlot(city);
   }
 
-  const createSlot = () => {
-    setSlot((pre) => [...pre, ""]);
+  const createSlot = (city) => {
+    setSlot((pre) => [...pre, city]);
   };
 
   const onSearch = () => {
-    let city = document.getElementsByClassName("cityName")[0].value;
+    let city = document
+      .getElementsByClassName("cityName")[0]
+      .value.toLowerCase();
+    city = city.charAt(0).toUpperCase() + city.slice(1);
     getWeather(city);
-    createSlot();
   };
 
   return (
     <div className="App">
       <div className="page">
-        {/* <button onClick={() => getQuotes()}>weather</button> */}
         <Nav onSearch={onSearch} />
+        <div className="slotArea">
+          {slot.map((city, index) => (
+            <WeatherSlot key={city} index={index} />
+          ))}
+        </div>
       </div>
     </div>
   );

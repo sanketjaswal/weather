@@ -1,4 +1,14 @@
 .page{
   display: flex;
+  flex-direction: column;
   justify-content: center;
+  align-items: center;
+}
+
+.slotArea{
+  width: 100vw;
+  flex-wrap: wrap;
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
 }
