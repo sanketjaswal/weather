@@ -1,7 +1,7 @@
-import react from "react";
+import React from "react";
 import "./Nav.css";
 
-export const Nav = () => {
+export const Nav = ({ onSearch }) => {
   return (
     <div className="navbarContainer">
       <div className="logo">
@@ -9,8 +9,12 @@ export const Nav = () => {
         <h1>Weather</h1>
       </div>
       <div className="searchContainer">
-        <input type="text" id="city" placeholder="Enter City Name"></input>
-        <input type="submit" value="Search"></input>
+        <input
+          type="text"
+          className="cityName"
+          placeholder="Enter City Name"
+        ></input>
+        <input type="submit" value="Search" onClick={onSearch}></input>
       </div>
     </div>
   );
