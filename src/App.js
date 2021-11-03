@@ -5,11 +5,11 @@ import { WeatherSlot } from "./Components/WeatherSlot";
 
 function App() {
   const slotHolder = [];
+  // const valueHolder = [];
+
   const [slot, setSlot] = useState(slotHolder);
 
-  useEffect(() => {
-    console.log(slot);
-  }, [slot]);
+  useEffect(() => {}, [slot]);
 
   let weather,
     weatherExplain,
@@ -19,11 +19,14 @@ function App() {
     longitute,
     latitute;
 
+  let response;
+
   async function getWeather(city) {
-    let response = await fetch(
+    response = await fetch(
       `http://api.openweathermap.org/data/2.5/weather?q=${city}&appid=33a10730e6ca0c3509477c6f462add13`
     );
     response = await response.json();
+
     weather = response.weather[0].main;
     weatherExplain = response.weather[0].description;
     tempKelvin = response.main.temp;
@@ -31,6 +34,7 @@ function App() {
     country = response.sys.country;
     longitute = response.coord.lon;
     latitute = response.coord.lat;
+
     createSlot(city);
   }
 
@@ -48,6 +52,7 @@ function App() {
       .value.toLowerCase();
     city = city.charAt(0).toUpperCase() + city.slice(1);
     getWeather(city);
+    document.getElementsByClassName("cityName")[0].value = "";
   };
 
   return (
@@ -58,6 +63,7 @@ function App() {
           {slot.map((city, index) => (
             <WeatherSlot
               key={city + 1}
+              city={city}
               index={index}
               weather={weather}
               weatherExplain={weatherExplain}

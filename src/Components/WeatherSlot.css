@@ -1,6 +1,22 @@
 .weatherSlotContainer{
+    position: relative;
     width: 370px;
     height: 200px;
-    background-color: red;
-    margin: 20px;
+    /* background-color: rgb(248, 248, 248); */
+    box-shadow: 0px 0px 7px grey;
+    margin: 30px 60px;
+    border-radius: 10px;
+    border-top-right-radius:80px;
+}
+
+.weatherIcon{
+    width: 90px;
+    height: 90px;
+    box-shadow: 0px 0px 10px grey;
+    background-color: white;
+    border-radius: 100%;
+    position: absolute;
+    right: -20px;
+    top: -20px;
+
 }
