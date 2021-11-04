@@ -2,23 +2,19 @@
     position: relative;
     width: 370px;
     height: 200px;
-    /* background-color: rgb(248, 248, 248); */
-    box-shadow: 0px 0px 7px grey;
+    background-color: rgb(235, 235, 235);
+    /* box-shadow: 0px 0px 71px grey; */
     margin: 30px 60px;
     border-radius: 10px;
     border-top-right-radius:80px;
     flex-wrap: wrap;
-    transition: 1s;
+    transition: 0s;
 }
-
-.ScatteredClouds
-
 
 /* icon */
 
 .weatherIconContainer{
     width: auto;
-  
 }
 
 .weatherIcon{
