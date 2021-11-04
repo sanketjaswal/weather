@@ -1,14 +1,59 @@
 .weatherSlotContainer{
     position: relative;
-    width: 370px;
-    height: 180px;
+    width: 340px;
+    height: 140px;
     background-color: rgb(235, 235, 235);
     /* box-shadow: 0px 0px 71px grey; */
-    margin: 30px 60px;
+    margin: 35px 70px;
     border-radius: 10px;
     border-top-right-radius:80px;
     flex-wrap: wrap;
-    transition: 0s;
+    transition: 0.2s;
+}
+
+.weatherSlotContainer:hover{
+    width: 370px;
+    height: 180px;
+    transition: 0.2s;
+    box-shadow: 0px 0px 10px lightblue;
+}
+
+.weatherSlotContainer:hover .weatherIcon{
+    width: 43%;
+    transition: 0.2s;
+    background-color: rgb(143, 216, 238);
+    box-shadow: 0px 0px 5px lightblue;
+}
+
+.weatherSlotContainer:hover .weatherContainer{
+    right: 10px;
+    bottom: 8px;
+    transition: 1s;
+}
+
+
+
+.weatherSlotContainer:hover .weatherContainer p:nth-child(3) ,.weatherSlotContainer:hover .weatherContainer p:nth-child(2) {
+  font-size:17px;
+  opacity: 1;
+  transition: opacity 1s;
+  transition: font-size 0.5s;
+  
+}
+
+.weatherSlotContainer:hover .tempContainer p:nth-child(1){
+    font-size:55px;
+    transition: 0.2s;
+}
+
+.weatherSlotContainer:hover .tempContainer p:nth-child(3){
+    font-size:35px;
+    transition: 0.2s;
+}
+
+.weatherSlotContainer:hover .tempContainer p:nth-child(4), .weatherSlotContainer:hover .tempContainer p:nth-child(2){
+   font-size:25px;
+    transition: 0.2s;
 }
 
 /* icon */
@@ -18,13 +63,14 @@
 }
 
 .weatherIcon{
-    width: 42%;
-    background-color: lightblue;
-    box-shadow: 0px 0px 10px lightblue;
+    width: 38%;
+    background-color: rgb(174, 182, 185);
+    box-shadow: 0px 0px 10px rgb(156, 156, 156);
     border-radius: 100%;
     position: absolute;
     right: -30px;
     top: -30px;
+     transition: 0.2s;
 }
 
 /* lottieIcon */
@@ -51,25 +97,103 @@
     top: -22px;
     left: -16px;
     border-radius: 30px 30px 0px 30px;
+    font-family: 'Oswald', sans-serif;
+    font-size: larger;
 }
 
-.celsiusContainer{
+.countryContainer{
+    width: 35px;
+    /* height: 10px; */
+    /* padding-inline: 5px; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: lightblue;
+    position: absolute;
+    right: -37px;
+    top: 13px;
+    font-size: larger;
+    border-radius: 30px 30px 30px 0px;
+}
+
+.weatherContainer{
+    width: fit-content;
+    height: 30px;
+    /* background-color: lightcoral; */
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    position: absolute;
+    right: 0px;
+    bottom: 5px;
+    overflow: hidden;
+    transition: 0.5s;
+    /* font-family: 'Oswald', sans-serif; */
+    /* font-size:large; */
+
+}
+
+.weatherContainer p{
+    margin: 1px 3px;
+    transition: 0.4s;
+}
+
+.weatherContainer p:nth-child(1) {
+  font-size:23px;
+  /* padding-left: 20px; */
+  
+}
+
+.weatherContainer p:nth-child(2) {
+  font-size:17px;
+  opacity: 0;
+}
+
+.weatherContainer p:nth-child(3) {
+  font-size:0px;
+  opacity: 0;
+  
+}
+
+.tempContainer{
     width: min-content;
     height: auto;
     /* background-color: rgb(102, 102, 102); */
     position: absolute;
     padding: 5px 10px;
-    top: 50px;
-    /* left: 0px; */
-    border-radius: 20px;
+    bottom: 0px;
+    left: 3px;
+    /* border-radius: 20px; */
+    display: flex;
+    user-select: none;
 }
 
-.celsiusContainer p{
-    font-size:58px;
+.tempContainer p{
     margin: 0px;
-    color: rgb(53, 53, 53);
+    color: rgb(43, 43, 43);
     font-family: 'Oswald', sans-serif;
-    /* font-weight: b; */
+     transition: 0.2s;
+}
+
+.tempContainer p:nth-child(1) {
+  font-size:45px;
+}
+
+.tempContainer p:nth-child(2) {
+  font-size:20px;
+}
+
+.tempContainer p:nth-child(3) {
+  font-size:25px;
+  font-weight: lighter;
+  font-family:cursive;
+  
+}
+
+.tempContainer p:nth-child(4) {
+  font-size:20px;
+  color:rgb(168, 168, 168);
+  
 }
 
 h5{

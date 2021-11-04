@@ -7,10 +7,11 @@ export const WeatherSlot = ({ index, info }) => {
   const weatherExplain = info[2];
   const tempKelvin = info[3];
   const tempCelsius = Math.round(info[4]);
-  const country = info[5];
-  const longitute = info[6];
-  const latitute = info[7];
-  const iconId = info[8].slice(0, info[8].length - 1);
+  const tempFahrenheit = Math.round(info[5]);
+  const country = info[6];
+  const longitute = info[7];
+  const latitute = info[8];
+  const iconId = info[9].slice(0, info[9].length - 1);
 
   let iconObject = {
     "01": "Stdaec", // Clear
@@ -29,29 +30,54 @@ export const WeatherSlot = ({ index, info }) => {
 
   if (iconId < "10") {
     asset = 4;
-    console.log(iconObject[iconId]);
+    // console.log(iconObject[iconId]);
     iconNameId = iconObject[iconId];
   } else {
     asset = 10;
-    console.log(iconObject[iconId]);
+    // console.log(iconObject[iconId]);
     iconNameId = iconObject[iconId];
   }
+
+  const tempChanger = (evt) => {
+    const element = evt.target;
+    // console.log(element.parentElement.children[1]);
+    if (element.className === "C") {
+      element.style.color = "rgb(43, 43, 43)";
+      element.parentElement.lastChild.style.color = "rgb(168, 168, 168)";
+      element.parentElement.firstChild.textContent = tempCelsius;
+    } else if (element.className === "F") {
+      element.style.color = "rgb(43, 43, 43)";
+      element.parentElement.children[1].style.color = "rgb(168, 168, 168)";
+      element.parentElement.firstChild.textContent = tempFahrenheit;
+    }
+  };
 
   return (
     <div className={`weatherSlotContainer ${weatherExplain}`}>
       <div className="cityNameContainer">
         <h2>{cityName}</h2>
+        <div className="countryContainer">
+          <h5>{country}</h5>
+        </div>
       </div>
-      {/* <h5>Weather : {weather}</h5>
-      <h5>{weatherExplain}</h5>
-      <h5>{tempKelvin} K</h5> */}
-      <div className="celsiusContainer">
-        <p>{tempCelsius}°C</p>
+      <div className="weatherContainer">
+        <p>{weather}</p>
+        <p>|</p>
+        <p>{weatherExplain}</p>
       </div>
-      {/* <h5>{country}</h5>
-      <h5>{longitute} long</h5>
+      <div className="tempContainer">
+        <p className="temperature">{tempCelsius}</p>
+        <p className="C" onClick={(e) => tempChanger(e)}>
+          °C
+        </p>
+        <p> | </p>
+        <p className="F" onClick={tempChanger}>
+          °F
+        </p>
+      </div>
+      {/* <h5>{longitute} long</h5>
       <h5>{latitute} lat</h5> */}
-      {/* <h5>{iconId}</h5> */}
+
       <div className="weatherIconContainer">
         <div className="weatherIcon">
           <lottie-player

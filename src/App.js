@@ -22,7 +22,6 @@ function App() {
       `http://api.openweathermap.org/data/2.5/weather?q=${city}&appid=33a10730e6ca0c3509477c6f462add13`
     );
     response = await response.json();
-    console.log(response);
 
     if (response.cod === "404") {
       alert("City not found");
@@ -36,6 +35,7 @@ function App() {
       const weatherExplain = response.weather[0].description;
       const tempKelvin = response.main.temp;
       const tempCelsius = tempKelvin - 273.15;
+      const tempFahrenheit = (tempCelsius * 9) / 5 + 32;
       const country = response.sys.country;
       const longitute = response.coord.lon;
       const latitute = response.coord.lat;
@@ -46,12 +46,13 @@ function App() {
       arr.push(weatherExplain);
       arr.push(tempKelvin);
       arr.push(tempCelsius);
+      arr.push(tempFahrenheit);
       arr.push(country);
       arr.push(longitute);
       arr.push(latitute);
       arr.push(iconId);
 
-      console.log(response);
+      // console.log(response);
 
       createSlot(city, arr);
     }
@@ -85,9 +86,6 @@ function App() {
               // key= index}
               // index={index}
               info={info}
-              // weather={info}
-              // weatherExplain={info[3]}
-              // tempKelvin={info[4]}
             />
           ))}
         </div>
