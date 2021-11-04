@@ -6,7 +6,7 @@ export const WeatherSlot = ({ index, info }) => {
   const weather = info[1];
   const weatherExplain = info[2];
   const tempKelvin = info[3];
-  const tempCelsius = info[4];
+  const tempCelsius = Math.round(info[4]);
   const country = info[5];
   const longitute = info[6];
   const latitute = info[7];
@@ -39,14 +39,18 @@ export const WeatherSlot = ({ index, info }) => {
 
   return (
     <div className={`weatherSlotContainer ${weatherExplain}`}>
-      <h3>{cityName}</h3>
-      <h5>Weather : {weather}</h5>
+      <div className="cityNameContainer">
+        <h2>{cityName}</h2>
+      </div>
+      {/* <h5>Weather : {weather}</h5>
       <h5>{weatherExplain}</h5>
-      <h5>{tempKelvin} K</h5>
-      <h5>{tempCelsius} C</h5>
-      <h5>{country}</h5>
+      <h5>{tempKelvin} K</h5> */}
+      <div className="celsiusContainer">
+        <p>{tempCelsius}°C</p>
+      </div>
+      {/* <h5>{country}</h5>
       <h5>{longitute} long</h5>
-      <h5>{latitute} lat</h5>
+      <h5>{latitute} lat</h5> */}
       {/* <h5>{iconId}</h5> */}
       <div className="weatherIconContainer">
         <div className="weatherIcon">
