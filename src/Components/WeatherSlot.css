@@ -7,16 +7,41 @@
     margin: 30px 60px;
     border-radius: 10px;
     border-top-right-radius:80px;
+    flex-wrap: wrap;
+    transition: 1s;
+}
+
+.ScatteredClouds
+
+
+/* icon */
+
+.weatherIconContainer{
+    width: auto;
+  
 }
 
 .weatherIcon{
-    width: 90px;
-    height: 90px;
-    box-shadow: 0px 0px 10px grey;
-    background-color: white;
+    width: 42%;
+    background-color: lightblue;
+    box-shadow: 0px 0px 10px lightblue;
     border-radius: 100%;
     position: absolute;
-    right: -20px;
-    top: -20px;
+    right: -30px;
+    top: -30px;
+}
 
+/* lottieIcon */
+
+.lottiIcon{
+    position: absolute;
+    width: 100px;
+     height:100px;
+     /* border-radius: 100%; */
+}
+
+/* text */
+
+h5{
+    margin: 2px 10px;
 }

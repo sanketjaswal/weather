@@ -3,7 +3,7 @@
 .navbarContainer{
     width: 97vw;
     height: 53px;
-    margin-block: 30px;
+    margin-block: 20px 40px;
     background-color: rgb(102, 236, 174);
     border-radius: 10px;
     display: flex;
@@ -11,10 +11,51 @@
     align-items: center;
 }
 
+/* menu */
+
+.menuContainer{
+    width: 45px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 0.3s;
+    cursor: pointer;
+    border-radius: 10px;
+    margin: 0px 45px 0px 10px;
+}
+
+.menuContainer:hover{
+    background-color: rgba(93, 214, 158, 0.932);
+    transition: 0s;
+}
+
+.menuContainer:active{
+    background-color: rgb(255, 255, 255);
+    transition: 0s;
+}
+
+#menu{
+    height: 25px;
+    width: 25px;
+    display: block;
+    /* icons8-delete-24.png */
+    transition: 1s;
+}
+
+.menuIcon1{
+    background-image: url("./icons/Menu.png");
+}
+
+.menuIcon2{
+    background-image: url("./icons/Delete.png");
+}
+
+
 /* logo */
 
 .logo{
-    display: flex   ;
+    display: flex ;
     margin-inline: 10px;
     user-select: none;
 }

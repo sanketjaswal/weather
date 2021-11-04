@@ -5,44 +5,61 @@ import { WeatherSlot } from "./Components/WeatherSlot";
 
 function App() {
   const slotHolder = [];
-  // const valueHolder = [];
+  const valueHolder = [];
 
   const [slot, setSlot] = useState(slotHolder);
+  const [info, setInfo] = useState(valueHolder);
 
-  useEffect(() => {}, [slot]);
+  useEffect(() => {
+    // console.log("slot : " + slot);
+    // console.log("info : " + info);
+  }, [slot, info]);
 
-  let weather,
-    weatherExplain,
-    tempKelvin,
-    tempCelsius,
-    country,
-    longitute,
-    latitute;
-
-  let response;
+  // let weather;
 
   async function getWeather(city) {
-    response = await fetch(
+    let response = await fetch(
       `http://api.openweathermap.org/data/2.5/weather?q=${city}&appid=33a10730e6ca0c3509477c6f462add13`
     );
     response = await response.json();
 
-    weather = response.weather[0].main;
-    weatherExplain = response.weather[0].description;
-    tempKelvin = response.main.temp;
-    tempCelsius = tempKelvin - 273.15;
-    country = response.sys.country;
-    longitute = response.coord.lon;
-    latitute = response.coord.lat;
+    if (response.cod === "404") {
+      alert("City not found");
+    } else {
+      const arr = [];
 
-    createSlot(city);
+      const cityName = response.name;
+      const weather = response.weather[0].main;
+      const weatherExplain = response.weather[0].description;
+      const tempKelvin = response.main.temp;
+      const tempCelsius = tempKelvin - 273.15;
+      const country = response.sys.country;
+      const longitute = response.coord.lon;
+      const latitute = response.coord.lat;
+      const iconId = response.weather[0].icon;
+
+      arr.push(cityName);
+      arr.push(weather);
+      arr.push(weatherExplain);
+      arr.push(tempKelvin);
+      arr.push(tempCelsius);
+      arr.push(country);
+      arr.push(longitute);
+      arr.push(latitute);
+      arr.push(iconId);
+
+      console.log(response);
+
+      createSlot(city, arr);
+    }
   }
 
-  const createSlot = (city) => {
+  const createSlot = (city, arr) => {
     if (slot.includes(city)) {
       alert("already added");
     } else {
       setSlot((pre) => [...pre, city]);
+      setInfo((pre) => [...pre, arr]);
     }
   };
 
@@ -60,18 +77,14 @@ function App() {
       <div className="page">
         <Nav onSearch={onSearch} />
         <div className="slotArea">
-          {slot.map((city, index) => (
+          {info.map((info) => (
             <WeatherSlot
-              key={city + 1}
-              city={city}
-              index={index}
-              weather={weather}
-              weatherExplain={weatherExplain}
-              tempKelvin={tempKelvin}
-              tempCelsius={tempCelsius}
-              country={country}
-              longitute={longitute}
-              latitute={latitute}
+              // key= index}
+              // index={index}
+              info={info}
+              // weather={info}
+              // weatherExplain={info[3]}
+              // tempKelvin={info[4]}
             />
           ))}
         </div>
