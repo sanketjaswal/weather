@@ -1,8 +1,13 @@
+body{
+  background-color: rgb(220, 255, 239);
+}
+
 .page{
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  
 }
 
 .slotArea{

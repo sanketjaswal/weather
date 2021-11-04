@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import "./App.css";
 import { Nav } from "./Components/Nav";
 import { WeatherSlot } from "./Components/WeatherSlot";
+import { Error404 } from "./Components/Error404";
+import { Error400 } from "./Components/Error400";
 
 function App() {
   const slotHolder = [];
@@ -24,9 +26,11 @@ function App() {
     response = await response.json();
 
     if (response.cod === "404") {
-      alert("City not found");
+      document.getElementsByClassName("error404Page")[0].style.zIndex = 1;
+      document.getElementsByClassName("error404Page")[0].style.opacity = 1;
     } else if (response.cod === "400") {
-      alert("Enter City Name");
+      document.getElementsByClassName("error400Page")[0].style.zIndex = 1;
+      document.getElementsByClassName("error400Page")[0].style.opacity = 1;
     } else {
       const arr = [];
 
@@ -78,6 +82,8 @@ function App() {
 
   return (
     <div className="App">
+      <Error404 />
+      <Error400 />
       <div className="page">
         <Nav onSearch={onSearch} />
         <div className="slotArea">
