@@ -8,14 +8,17 @@ import { Error400 } from "./Components/Error400";
 function App() {
   const slotHolder = [];
   const valueHolder = [];
+  const hiddenValueHolder = [];
 
   const [slot, setSlot] = useState(slotHolder);
   const [info, setInfo] = useState(valueHolder);
+  const [hidden, setHidden] = useState(hiddenValueHolder);
 
   useEffect(() => {
     // console.log("slot : " + slot);
     // console.log("info : " + info);
-  }, [slot, info]);
+    // console.log("hidden : " + hidden);
+  }, [slot, info, hidden]);
 
   // let weather;
 
@@ -84,7 +87,28 @@ function App() {
       console.log(neW);
       return neW;
     });
-    // postNotes();
+  };
+
+  const hideSlot = (evt, index) => {
+    const element = evt.currentTarget.parentElement;
+    if (element.className !== "hiddenSlot") {
+      console.log(element.children);
+      for (var i = 0; i <= 5; i++) {
+        if (i === 1 || i === 2 || i === 5) {
+          element.children[i].style.display = "none";
+        }
+      }
+      element.children[0].lastChild.style.display = "none";
+      element.className = "hiddenSlot";
+    } else {
+      for (var i = 0; i <= 5; i++) {
+        if (i === 1 || i === 2 || i === 5) {
+          element.children[i].style.display = "flex";
+        }
+      }
+      element.children[0].lastChild.style.display = "flex";
+      element.className = "weatherSlotContainer";
+    }
   };
 
   const onSearch = () => {
@@ -109,6 +133,7 @@ function App() {
               index={index}
               info={info}
               deleteSlot={deleteSlot}
+              hideSlot={hideSlot}
             />
           ))}
         </div>

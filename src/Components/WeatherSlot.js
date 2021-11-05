@@ -1,7 +1,7 @@
 import React from "react";
 import "./WeatherSlot.css";
 
-export const WeatherSlot = ({ index, info, deleteSlot }) => {
+export const WeatherSlot = ({ index, info, deleteSlot, hideSlot }) => {
   const cityName = info[0];
   const weather = info[1];
   const weatherExplain = info[2];
@@ -53,7 +53,7 @@ export const WeatherSlot = ({ index, info, deleteSlot }) => {
   };
 
   return (
-    <div className={`weatherSlotContainer ${weatherExplain}`}>
+    <div className="weatherSlotContainer">
       <div className="cityNameContainer">
         <h2>{cityName}</h2>
         <div className="countryContainer">
@@ -79,9 +79,9 @@ export const WeatherSlot = ({ index, info, deleteSlot }) => {
       <div className="note_icon trash_icon" onClick={() => deleteSlot(index)}>
         <i className="fas fa-times"></i>
       </div>
-      {/* <div className="note_icon hide_icon">
-        <i class="fas fa-eye-slash"></i>
-      </div> */}
+      <div className="note_icon hide_icon" onClick={(e) => hideSlot(e, index)}>
+        <i className="fas fa-eye-slash"></i>
+      </div>
 
       <div className="weatherIconContainer">
         <div className="weatherIcon">
