@@ -2,7 +2,7 @@ import React from "react";
 import "./Nav.css";
 import { NavOpen } from "./NavOpen";
 
-export const Nav = ({ onSearch }) => {
+export const Nav = ({ onSearch, reseter, hider, unHider }) => {
   let slider = "off";
 
   const sideNavSlider = () => {
@@ -10,7 +10,7 @@ export const Nav = ({ onSearch }) => {
       document.getElementById("menu").classList.remove("menuIcon1");
       document.getElementById("menu").classList.add("menuIcon2");
       document.getElementsByClassName("navOpenContainer")[0].style.bottom =
-        "-205px";
+        "-58px";
 
       slider = "on";
     } else if (slider === "on") {
@@ -43,7 +43,7 @@ export const Nav = ({ onSearch }) => {
           </div>
         </div>
       </div>
-      <NavOpen />
+      <NavOpen reseter={reseter} hider={hider} unHider={unHider} />
     </div>
   );
 };

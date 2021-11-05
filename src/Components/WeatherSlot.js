@@ -80,7 +80,7 @@ export const WeatherSlot = ({ index, info, deleteSlot, hideSlot }) => {
         <i className="fas fa-times"></i>
       </div>
       <div className="note_icon hide_icon" onClick={(e) => hideSlot(e, index)}>
-        <i className="fas fa-eye-slash"></i>
+        <i class="fas fa-archive"></i>
       </div>
 
       <div className="weatherIconContainer">

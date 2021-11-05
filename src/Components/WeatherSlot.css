@@ -106,7 +106,7 @@
   justify-content: center;
   align-items: center;
   position: absolute;
-  background-color: rgba(102, 236, 173, 0.521);
+  background-color: rgba(102, 236, 173, 0.986);
   color: white;
   top: -22px;
   left: -16px;
@@ -261,23 +261,18 @@ h5 {
 }
 
 .hide_icon {
-  bottom: 30px;
-  right: -12px;
+  bottom: -10px;
+  left: 87px;
 }
 
 .hiddenSlot .hide_icon {
   bottom: -30px;
-  right: 0px;
+  left: -25px;
 }
 
 .hide_icon:active {
   background-color: rgb(0, 119, 255);
 }
-
-.deletion_animation {
-    margin: 16px;
-    animation: deletion_desktop 0.6s ease;
-  }
 
 @keyframes note_addition {
   0% {

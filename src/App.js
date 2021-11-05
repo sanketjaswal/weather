@@ -4,7 +4,7 @@ import { Nav } from "./Components/Nav";
 import { WeatherSlot } from "./Components/WeatherSlot";
 import { Error404 } from "./Components/Error404";
 import { Error400 } from "./Components/Error400";
-
+import { ErrorPage } from "./Components/ErrorPage";
 function App() {
   const slotHolder = [];
   const valueHolder = [];
@@ -67,7 +67,8 @@ function App() {
 
   const createSlot = (city, arr) => {
     if (slot.includes(city)) {
-      alert("already added");
+      document.getElementsByClassName("errorPage")[0].style.zIndex = 2;
+      document.getElementsByClassName("errorPage")[0].style.opacity = 1;
     } else {
       setSlot((pre) => [...pre, city]);
       setInfo((pre) => [...pre, arr]);
@@ -120,12 +121,39 @@ function App() {
     document.getElementsByClassName("cityName")[0].value = "";
   };
 
+  const reseter = () => {
+    setSlot(() => []);
+    setInfo(() => []);
+  };
+
+  const hider = () => {
+    var x = document.getElementsByClassName("weatherSlotContainer");
+    var i;
+    for (i = 0; i < x.length; i++) {
+      x[i].style.display = "none";
+    }
+  };
+
+  const unHider = () => {
+    var x = document.getElementsByClassName("weatherSlotContainer");
+    var i;
+    for (i = 0; i < x.length; i++) {
+      x[i].style.display = "block";
+    }
+  };
+
   return (
     <div className="App">
       <Error404 />
       <Error400 />
+      <ErrorPage />
       <div className="page">
-        <Nav onSearch={onSearch} />
+        <Nav
+          onSearch={onSearch}
+          reseter={reseter}
+          hider={hider}
+          unHider={unHider}
+        />
         <div className="slotArea">
           {info.map((info, index) => (
             <WeatherSlot

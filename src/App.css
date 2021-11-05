@@ -17,7 +17,7 @@ body{
 .slotArea{
   width: 100vw;
   /* background-color: blueviolet; */
-  margin: 20px 0px;
+  margin: 60px 0px;
   flex-wrap: wrap;
   display: flex;
   justify-content: center;
