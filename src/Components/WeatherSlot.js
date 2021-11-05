@@ -1,7 +1,7 @@
 import React from "react";
 import "./WeatherSlot.css";
 
-export const WeatherSlot = ({ index, info }) => {
+export const WeatherSlot = ({ index, info, deleteSlot }) => {
   const cityName = info[0];
   const weather = info[1];
   const weatherExplain = info[2];
@@ -12,6 +12,8 @@ export const WeatherSlot = ({ index, info }) => {
   const longitute = info[7];
   const latitute = info[8];
   const iconId = info[9].slice(0, info[9].length - 1);
+
+  console.log(index);
 
   let iconObject = {
     "01": "Stdaec", // Clear
@@ -30,17 +32,15 @@ export const WeatherSlot = ({ index, info }) => {
 
   if (iconId < "10") {
     asset = 4;
-    // console.log(iconObject[iconId]);
+
     iconNameId = iconObject[iconId];
   } else {
     asset = 10;
-    // console.log(iconObject[iconId]);
     iconNameId = iconObject[iconId];
   }
 
   const tempChanger = (evt) => {
     const element = evt.target;
-    // console.log(element.parentElement.children[1]);
     if (element.className === "C") {
       element.style.color = "rgb(43, 43, 43)";
       element.parentElement.lastChild.style.color = "rgb(168, 168, 168)";
@@ -75,8 +75,13 @@ export const WeatherSlot = ({ index, info }) => {
           °F
         </p>
       </div>
-      {/* <h5>{longitute} long</h5>
-      <h5>{latitute} lat</h5> */}
+
+      <div className="note_icon trash_icon" onClick={() => deleteSlot(index)}>
+        <i className="fas fa-times"></i>
+      </div>
+      {/* <div className="note_icon hide_icon">
+        <i class="fas fa-eye-slash"></i>
+      </div> */}
 
       <div className="weatherIconContainer">
         <div className="weatherIcon">

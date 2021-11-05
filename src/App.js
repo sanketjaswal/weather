@@ -71,6 +71,22 @@ function App() {
     }
   };
 
+  const deleteSlot = (index) => {
+    setInfo((pre) => {
+      const neW = [...pre];
+      neW.splice(index, 1);
+      console.log(neW);
+      return neW;
+    });
+    setSlot((pre) => {
+      const neW = [...pre];
+      neW.splice(index, 1);
+      console.log(neW);
+      return neW;
+    });
+    // postNotes();
+  };
+
   const onSearch = () => {
     let city = document
       .getElementsByClassName("cityName")[0]
@@ -87,11 +103,12 @@ function App() {
       <div className="page">
         <Nav onSearch={onSearch} />
         <div className="slotArea">
-          {info.map((info) => (
+          {info.map((info, index) => (
             <WeatherSlot
               // key= index}
-              // index={index}
+              index={index}
               info={info}
+              deleteSlot={deleteSlot}
             />
           ))}
         </div>
