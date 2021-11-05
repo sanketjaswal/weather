@@ -1,5 +1,9 @@
+:root {
+  --bodyBackgroundColor : rgb(220, 255, 239);
+}
+
 body{
-  background-color: rgb(220, 255, 239);
+  background-color: var(--bodyBackgroundColor);
 }
 
 .page{
@@ -12,8 +16,11 @@ body{
 
 .slotArea{
   width: 100vw;
+  /* background-color: blueviolet; */
+  margin: 20px 0px;
   flex-wrap: wrap;
   display: flex;
   justify-content: center;
   align-items: stretch;
+  /* z-index: -1; */
 }

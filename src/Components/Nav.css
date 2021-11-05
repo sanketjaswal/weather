@@ -1,14 +1,30 @@
 /* nav */
 
+
+
+.navHolder{
+    /* background-color: rgb(22, 151, 93); */
+    display: flex;
+    justify-content: center;
+    position: relative;
+     z-index: 1;
+}
+
 .navbarContainer{
+    background-color: var(--bodyBackgroundColor);
+}
+
+.navbar{
     width: 97vw;
     height: 53px;
-    margin-block: 20px 40px;
+    margin-block: 20px 0px;
     background-color: rgb(102, 236, 174);
     border-radius: 10px;
     display: flex;
     justify-content:space-between;
     align-items: center;
+    position: relative;
+    z-index: 1;
 }
 
 /* menu */

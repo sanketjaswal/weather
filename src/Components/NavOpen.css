@@ -1,0 +1,16 @@
+.navOpenContainer {
+  width: 85%;
+  height: 30vh;
+  background-color: rgba(162, 253, 210, 0.836);
+  position: absolute;
+  bottom: 10px;
+  transition: 0.6s;
+  z-index: -2;
+  border-radius: 0px 0px 20px 20px;
+  box-shadow: 0px 3px 5px rgba(69, 160, 117, 0.705);
+}
+
+.navOpenContainer:hover {
+  background-color: rgba(162, 253, 210);
+  transition: 0.2s;
+}

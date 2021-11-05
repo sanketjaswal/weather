@@ -26,10 +26,10 @@ function App() {
     response = await response.json();
 
     if (response.cod === "404") {
-      document.getElementsByClassName("error404Page")[0].style.zIndex = 1;
+      document.getElementsByClassName("error404Page")[0].style.zIndex = 2;
       document.getElementsByClassName("error404Page")[0].style.opacity = 1;
     } else if (response.cod === "400") {
-      document.getElementsByClassName("error400Page")[0].style.zIndex = 1;
+      document.getElementsByClassName("error400Page")[0].style.zIndex = 2;
       document.getElementsByClassName("error400Page")[0].style.opacity = 1;
     } else {
       const arr = [];
