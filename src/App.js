@@ -24,7 +24,7 @@ function App() {
 
   async function getWeather(city) {
     let response = await fetch(
-      `http://api.openweathermap.org/data/2.5/weather?q=${city}&appid=33a10730e6ca0c3509477c6f462add13`
+      `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=33a10730e6ca0c3509477c6f462add13`
     );
     response = await response.json();
 
