@@ -98,7 +98,7 @@ function App() {
       element.children[0].lastChild.style.display = "none";
       element.className = "hiddenSlot";
     } else {
-      for (var i = 0; i <= 5; i++) {
+      for (i = 0; i <= 5; i++) {
         if (i === 1 || i === 2 || i === 5) {
           element.children[i].style.display = "flex";
         }
