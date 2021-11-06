@@ -5,22 +5,18 @@ import { WeatherSlot } from "./Components/WeatherSlot";
 import { Error404 } from "./Components/Error404";
 import { Error400 } from "./Components/Error400";
 import { ErrorPage } from "./Components/ErrorPage";
+
 function App() {
   const slotHolder = [];
   const valueHolder = [];
-  const hiddenValueHolder = [];
 
   const [slot, setSlot] = useState(slotHolder);
   const [info, setInfo] = useState(valueHolder);
-  const [hidden, setHidden] = useState(hiddenValueHolder);
 
   useEffect(() => {
     // console.log("slot : " + slot);
     // console.log("info : " + info);
-    // console.log("hidden : " + hidden);
-  }, [slot, info, hidden]);
-
-  // let weather;
+  }, [slot, info]);
 
   async function getWeather(city) {
     let response = await fetch(
