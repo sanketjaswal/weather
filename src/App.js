@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import "./App.css";
 import { Nav } from "./Components/Nav";
 import { WeatherSlot } from "./Components/WeatherSlot";
@@ -12,11 +12,6 @@ function App() {
 
   const [slot, setSlot] = useState(slotHolder);
   const [info, setInfo] = useState(valueHolder);
-
-  useEffect(() => {
-    // console.log("slot : " + slot);
-    // console.log("info : " + info);
-  }, [slot, info]);
 
   async function getWeather(city) {
     let response = await fetch(
