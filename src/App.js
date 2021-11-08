@@ -81,7 +81,7 @@ function App() {
     });
   };
 
-  const hideSlot = (evt, index) => {
+  const hideSlot = (evt) => {
     const element = evt.currentTarget.parentElement;
     if (element.className !== "hiddenSlot") {
       console.log(element.children);
@@ -108,8 +108,8 @@ function App() {
       .getElementsByClassName("cityName")[0]
       .value.toLowerCase();
     city = city.charAt(0).toUpperCase() + city.slice(1);
-    getWeather(city);
     document.getElementsByClassName("cityName")[0].value = "";
+    getWeather(city);
   };
 
   const reseter = () => {

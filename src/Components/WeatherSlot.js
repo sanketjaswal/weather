@@ -13,18 +13,18 @@ export const WeatherSlot = ({ index, info, deleteSlot, hideSlot }) => {
   const latitute = info[8];
   const iconId = info[9].slice(0, info[9].length - 1);
 
-  console.log(index);
+  // console.log(index);
 
   let iconObject = {
     "01": "Stdaec", // Clear
     "02": "VAmWRg", // Clouds
-    "03": "dgjK9i", // Partly clouds
-    "04": "dgjK9i", // Scattered clouds
+    "03": "dgjK9i", // broken clouds
+    "04": "dgjK9i", // scattered clouds , outcast clouds
     "09": "rpC1Rd", // Drizzle
     10: "XkF78Y", // Rain
     11: "JA7Fsb", // ThunderStorm
     13: "WtPCZs", // Snow
-    50: "kOfPKE", // Mist, Smoke
+    50: "kOfPKE", // Mist, Smoke ,Haze
   };
 
   let asset;
@@ -79,7 +79,7 @@ export const WeatherSlot = ({ index, info, deleteSlot, hideSlot }) => {
       <div className="note_icon trash_icon" onClick={() => deleteSlot(index)}>
         <i className="fas fa-times"></i>
       </div>
-      <div className="note_icon hide_icon" onClick={(e) => hideSlot(e, index)}>
+      <div className="note_icon hide_icon" onClick={(e) => hideSlot(e)}>
         <i class="fas fa-archive"></i>
       </div>
 
